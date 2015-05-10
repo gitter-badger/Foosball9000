@@ -1,0 +1,52 @@
+﻿<div>
+    <div id="mydiv" ng-show="loading" align="center">
+        <img src="images/ajax-loader.gif" class="ajax-loader" />
+    </div>
+    
+    <section ng-show="!loading">
+        <h3>SELECT THE PLAYERS</h3>
+        <div class="container">
+            <div class="col-sm-4 col-md-2" ng-repeat="p in userList" ng-click="playerClick(p)">
+                <div class="selectplayer" ng-class="{ 'Selected' : p.Selected, 'TeamOne' : p.Team1, 'TeamTwo' : p.Team2  }">
+                    <img src="images/PlayAllTheGames.png" style="width: 80%; height: 80%;" />
+                    <p style="text-align: center; min-height: 60px;">{{p.displayName}} <br /> {{p.EloRating}}</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <h3>SUBMIT SCORE</h3>
+
+    <section ng-show="!loading && !bestMatchup.IsMatchReady">
+        <p>Select 4 players to enter score.</p>
+    </section>
+
+    <section ng-show="!loading && bestMatchup.IsMatchReady">
+        
+        <h4>1st Match</h4>
+        <label>Score:</label>
+        <input type="number" style="background-color: dodgerblue"/>
+        <input type="number" style="background-color: darkseagreen" />
+
+        <h4>2nd Match</h4>
+        <label>Score:</label>
+        <input type="number" style="background-color: dodgerblue" />
+        <input type="number" style="background-color: darkseagreen" />
+        
+        <h4>3rd Match</h4>
+        <label>Score:</label>
+        <input type="number" style="background-color: dodgerblue" />
+        <input type="number" style="background-color: darkseagreen" />
+        <br/>
+
+        <button id="submit" type="submit" class="btn btn-primary">Add games</button>
+
+        <pre ng-show="validationFailed">{{errorMessage}}</pre>
+    </section>
+
+
+        <p style="color: crimson;">{{Debug}}</p>
+        <p style="color: crimson;">{{autoMatchup}}</p>
+        <p style="color: crimson;">{{bestMatchup.Message}}</p>
+</div>

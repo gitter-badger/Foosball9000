@@ -3,17 +3,20 @@
 <head>
     <title>Foosball 9000</title>
     <link href="../Content/bootstrap.css" rel="stylesheet">
+    <link href="../Content/Style.css" rel="stylesheet">
     <script src="../Scripts/angular.js"></script>
     <script src="../Scripts/angular-route.js"></script>
     <script src="../Scripts/angular-resource.js"></script>
     <script src="../Scripts/date.format.js"></script>
-    <script src="../Scripts/foosballScripts.js"></script>
+
+    <script src="../LocalScripts/foosballScript.js"></script>
 
     <script src="app.js"></script>
     
     <script src="controllers/homeController.js"></script>
     <script src="controllers/leaderboardController.js"></script>
     <script src="controllers/addmatchController.js"></script>
+    <script src="controllers/startmatchController.js"></script>
     <script src="controllers/adduserController.js"></script>
     <script src="controllers/lastgamesController.js"></script>
     <script src="controllers/playerController.js"></script>
@@ -22,7 +25,6 @@
     <script src="services/userService.js"></script>
     <script src="services/leaderboardService.js"></script>
     <script src="services/playerService.js"></script>
-
     
 </head>
 <body>   
@@ -33,11 +35,13 @@
             <a class="btn btn-default" href="#/addmatch">Add Match</a>
             <a class="btn btn-default" href="#/adduser">Add User</a>
             <a class="btn btn-default" href="#/lastgames">Last Games</a>
+            <a class="btn btn-default" href="#/startmatch">Start Match</a>
         </div>
     </div>
 
     <div class="container" ng-controller="mainController">
         <div class="col-md-12" ng-view/>
     </div>
+
 </body>
 </html>
