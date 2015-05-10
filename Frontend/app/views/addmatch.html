@@ -90,8 +90,11 @@
                     <input type="checkbox" ng-model="match.StaticFormationTeam2" />Did team 2 stay in these positions allthrough the match?
                 </div>
             </div>
-        </div>   
-                
+        </div>
+
+        <input type="datetime-local" id="exampleInput" name="input" ng-model="today"
+               placeholder="dd-MM-yyyyTHH:mm" required />
+
         <div class="form-group">
             <div class="col-sm-10">
                 <button id="submit" type="submit" class="btn btn-primary">Add game</button>

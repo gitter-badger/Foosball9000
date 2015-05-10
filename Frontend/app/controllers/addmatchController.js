@@ -8,6 +8,8 @@ app.controller("addmatchController",
         $scope.validationFailed = false;
         $scope.errorMessage = "";
         $scope.loading = true;
+        $scope.today = new Date();
+        
         user.getUsers().then(function (payload) {
             $scope.userList = payload;
             $scope.loading = false;           
