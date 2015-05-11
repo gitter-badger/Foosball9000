@@ -1,7 +1,7 @@
 ﻿"use strict";
 
 app.controller("addmatchController",
-    function($scope, $location, match, user) {
+    function ($scope, $location, $routeParams, match, user) {
 
         $scope.playerlist = {};
         $scope.match = {};
@@ -9,6 +9,10 @@ app.controller("addmatchController",
         $scope.errorMessage = "";
         $scope.loading = true;
         $scope.today = new Date();
+
+        if ($routeParams.matchId !== 0) {
+            
+        }
         
         user.getUsers().then(function (payload) {
             $scope.userList = payload;

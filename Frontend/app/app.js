@@ -12,7 +12,7 @@
                     templateUrl: "views/leaderboard.html",
                     controller: "leaderboardController"
                 })
-                .when("/addmatch", {
+                .when("/addmatch/:matchId", {
                     templateUrl: "views/addmatch.html",
                     controller: "addmatchController"
                 })
