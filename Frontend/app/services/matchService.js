@@ -56,6 +56,17 @@
                     }
 
                     return { validated: true, errorMessage: "" }
+                },
+                getMatch: function(id) {
+                    var deferred = $q.defer();
+
+                    $http.get("http://localhost:44716/api/match/getmatch?id=" + id)
+                        .success(function (data, status, headers, config) {
+                            deferred.resolve(data);
+                        }).error(function (data, status, headers, config) {
+                            deferred.reject(data);
+                        });
+                    return deferred.promise;
                 }
             };
 

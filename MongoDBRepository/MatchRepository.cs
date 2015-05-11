@@ -42,5 +42,10 @@ namespace MongoDBRepository
         {
             return Collection.Find(Query<Match>.Where(x => x.PlayerList.Contains(email))).ToList();
         }
+
+        public Match GetMatch(Guid id)
+        {
+            return Collection.FindOne(Query<Match>.Where(x => x.Id == id));
+        }
     }
 }

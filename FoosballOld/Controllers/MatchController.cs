@@ -35,6 +35,12 @@ namespace FoosballOld.Controllers
             return _matchRepository.GetMatches();
         }
 
+        [HttpGet]
+        public Match GetMatch(Guid id)
+        {
+            return _matchRepository.GetMatch(id);
+        }
+
         // GET: /api/Match/LastGames?numberOfMatches=10
         [HttpGet]
         public IEnumerable<Match> LastGames([FromUri] int numberOfMatches)
