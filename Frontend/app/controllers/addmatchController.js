@@ -11,16 +11,23 @@ app.controller("addmatchController",
         $scope.today = new Date();
 
         if ($routeParams.matchId !== 0) {
-            match.getMatch($routeParams.matchId).then(function(payload) {
-                var sdf = payload;
+
+            $q.all([match.getMatch($routeParams.matchId), user.getUsers()]).then(function(payload) {
+                var existingMatch = payload[0];
+
+                $scope.playerlist.Player1 = existingMatch.match.PlayerList[0];
+                $scope.playerlist.Player2 = existingMatch.match.PlayerList[1];
+                $scope.playerlist.Player3 = existingMatch.match.PlayerList[2];
+                $scope.playerlist.Player4 = existingMatch.match.PlayerList[3];
+
+            });
+        } else {
+            user.getUsers().then(function (payload) {
+                $scope.userList = payload;
+                $scope.loading = false;
             });
         }
 
-        user.getUsers().then(function (payload) {
-            $scope.userList = payload;
-            $scope.loading = false;           
-
-        });
 
         $scope.submit = function() {
             $scope.match.PlayerList = [];
