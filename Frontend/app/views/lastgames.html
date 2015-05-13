@@ -11,6 +11,7 @@
                 <th>TEAM 2</th>
                 <th>SCORE</th>
                 <th>POINTS</th>
+                <th>EDIT</th>
             </tr>
         </thead>
         <tr ng-repeat="game in lastgames">
@@ -39,9 +40,17 @@
             <td>
                 <p>{{game.MatchResult.Team1Score}} - {{game.MatchResult.Team2Score}}</p>
             </td>
-            
+
             <td>
                 <p>{{game.Points}}</p>
+            </td>
+
+            <td>
+                <a ng-href="#/addmatch/{{game.Id}}">
+                    <p>
+                        <b>EDIT</b>
+                    </p>
+                </a>
             </td>
         </tr>
     </table>

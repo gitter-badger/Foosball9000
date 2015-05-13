@@ -16,6 +16,10 @@
                     templateUrl: "views/leaderboard.html",
                     controller: "leaderboardController"
                 })
+                .when("/addmatch/:matchId", {
+                    templateUrl: "views/addmatch.html",
+                    controller: "addmatchController"
+                })
                 .when("/addmatch", {
                     templateUrl: "views/addmatch.html",
                     controller: "addmatchController"
