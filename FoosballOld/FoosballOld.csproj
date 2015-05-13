@@ -246,7 +246,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{A63E7B0C-818C-406A-9086-714954737FE6}</Project>
+      <Project>{a63e7b0c-818c-406a-9086-714954737fe6}</Project>
       <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Logic\Logic.csproj">

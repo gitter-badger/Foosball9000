@@ -4,15 +4,19 @@
     .config([
         "$routeProvider", function($routeProvider) {
             $routeProvider
-                .when("/", {
-                    templateUrl: "views/home.html",
-                    controller: "homeController"
-                })
+                //.when("/", {
+                //    templateUrl: "views/home.html",
+                //    controller: "homeController"
+                //})
                 .when("/leaderboard", {
                     templateUrl: "views/leaderboard.html",
                     controller: "leaderboardController"
                 })
-                .when("/addmatch/:matchId", {
+                .when("/", {
+                    templateUrl: "views/leaderboard.html",
+                    controller: "leaderboardController"
+                })
+                .when("/addmatch", {
                     templateUrl: "views/addmatch.html",
                     controller: "addmatchController"
                 })
