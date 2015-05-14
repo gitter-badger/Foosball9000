@@ -20,10 +20,6 @@
                     templateUrl: "views/addmatch.html",
                     controller: "addmatchController"
                 })
-                .when("/addmatch", {
-                    templateUrl: "views/addmatch.html",
-                    controller: "addmatchController"
-                })
                 .when("/startmatch", {
                     templateUrl: "views/startmatch.html",
                     controller: "startmatchController"

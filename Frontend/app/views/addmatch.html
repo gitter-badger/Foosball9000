@@ -9,19 +9,13 @@
                 <h3>Team 1</h3>
             </div>       
             <div class="form-group">
-                <!--team 1-->
                 <label class="col-md-2 control-label" for="defenceTeamOne">Defence</label>
-                 <!--<input class="col-md-10" id="defenceTeamOne" list="player1Team1" ng-model="playerlist.Player1" required />
-               <datalist class="col-md-10" id="player1Team1">
-                    <option ng-repeat="user in userList" value="{{user.Email}}">{{user.Username}}</option>
-                </datalist>-->
                 <select class="col-md-10" id="defenceTeamOne" list="player1Team1" ng-model="playerlist.Player1" required >
                     <option ng-repeat="user in userList" value="{{user.Email}}">{{user.Username}}</option>
                 </select>
             </div>  
             
             <div class="form-group">
-                <!--team 1-->
                 <label class="col-md-2 control-label" for="offenceTeamOne">Offence</label>
                 
                 <select class="col-md-10" id="offenceTeamOne" list="player2Team1" ng-model="playerlist.Player2" required>
@@ -29,13 +23,11 @@
                 </select>
             </div>  
             <div class="form-group">
-                <!--team 1-->
                 <label class="col-md-2 control-label" for="scoreTeamOne">Score</label>
                 <input class="col-md-10" id="scoreTeamOne" type="number" name="input" ng-model="match.MatchResult.Team1Score"
                        min="0" max="99" required>
             </div>
             <div class="form-group">
-                <!--team 1-->
                 <div class="col-md-offset-2 col-md-10">
                     <input type="checkbox" ng-model="match.StaticFormationTeam1" />Did team 1 stay in these positions allthrough the match?
                 </div>
@@ -62,14 +54,12 @@
                 </select>
             </div>
             <div class="form-group">
-                <!--team 2-->
                 <label class="col-md-2 control-label" for="scoreTeamTwo">Score</label>
                 <input id="scoreTeamTwo" class="col-md-10" type="number" name="input" ng-model="match.MatchResult.Team2Score"
                        min="0" max="99" required>
             </div>
 
             <div class="form-group">
-                <!--team 2-->
                 <div class="col-md-offset-2 col-md-10">
                     <input type="checkbox" ng-model="match.StaticFormationTeam2" />Did team 2 stay in these positions allthrough the match?
                 </div>
