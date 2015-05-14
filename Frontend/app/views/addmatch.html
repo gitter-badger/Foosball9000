@@ -23,11 +23,7 @@
             <div class="form-group">
                 <!--team 1-->
                 <label class="col-md-2 control-label" for="offenceTeamOne">Offence</label>
-                <!--<input class="col-md-10" id="offenceTeamOne" list="player2Team1" ng-model="playerlist.Player2" required />
-                <datalist id="player2Team1">
-                    <option ng-repeat="user in userList" value="{{user.Email}}">{{user.Username}}</option>
-                </datalist>-->
-
+                
                 <select class="col-md-10" id="offenceTeamOne" list="player2Team1" ng-model="playerlist.Player2" required>
                     <option ng-repeat="user in userList" value="{{user.Email}}">{{user.Username}}</option>
                 </select>
@@ -54,25 +50,13 @@
                 <h3 class="col-md-10">Team 2</h3>
             </div>
             <div class="form-group">
-                <!--team 2-->
                 <label class="col-md-2 control-label" for="defenceTeamTwo">Defence</label>
-                <!--<input class="col-md-10" id="defenceTeamTwo" list="player1Team2" ng-model="playerlist.Player3" required />
-                <datalist id="player1Team2">
-                    <option ng-repeat="user in userList" value="{{user.Email}}">{{user.Username}}</option>
-                </datalist>-->
-
                 <select class="col-md-10" id="defenceTeamTwo" list="player1Team2" ng-model="playerlist.Player3" required>
                     <option ng-repeat="user in userList" value="{{user.Email}}">{{user.Username}}</option>
                 </select>
             </div>
             <div class="form-group">
-                <!--team 2-->
                 <label class="col-md-2 control-label" for="offenceTeamTwo">Offence</label>
-                <!--<input id="offenceTeamTwo" class="col-md-10" list="player2Team2" ng-model="playerlist.Player4" required type="email" />
-                <datalist id="player2Team2">
-                    <option ng-repeat="user in userList" value="{{user.Email}}">{{user.Username}}</option>
-                </datalist>-->
-
                 <select class="col-md-10" id="offenceTeamTwo" list="player2Team2" ng-model="playerlist.Player4" required>
                     <option ng-repeat="user in userList" value="{{user.Email}}">{{user.Username}}</option>
                 </select>
