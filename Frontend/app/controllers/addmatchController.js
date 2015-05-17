@@ -11,31 +11,22 @@ app.controller("addmatchController",
         $scope.loading = true;
         $scope.today = new Date();
 
-        if ($routeParams.matchId == undefined || $routeParams.matchId === "0") {
-            user.getUsers().then(function (payload) {
-                $scope.userList = payload;
-                $scope.loading = false;
-            });
-        } else {
-            $q.all([match.getMatch($routeParams.matchId), user.getUsers()]).then(function (payload) {
-                $scope.userList = payload[1];
+        user.getUsers().then(function (payload) {
+            $scope.userList = payload;
+            $scope.loading = false;
+        }).then(function (payload) {
+            if ($routeParams.matchId !== 0) {
+                match.getMatch($routeParams.matchId).then(function (m) {
+                    $scope.playerlist.Player1 = m.PlayerList[0];
+                    $scope.playerlist.Player2 = m.PlayerList[1];
+                    $scope.playerlist.Player3 = m.PlayerList[2];
+                    $scope.playerlist.Player4 = m.PlayerList[3];
 
-                var existingMatch = payload[0];
-                $scope.playerlist.Player1 = existingMatch.PlayerList[0];
-                $scope.playerlist.Player2 = existingMatch.PlayerList[1];
-                $scope.playerlist.Player3 = existingMatch.PlayerList[2];
-                $scope.playerlist.Player4 = existingMatch.PlayerList[3];
-
-                $scope.match.MatchResult.Team1Score = existingMatch.MatchResult.Team1Score;
-                $scope.match.MatchResult.Team2Score = existingMatch.MatchResult.Team2Score;
-                $scope.match.StaticFormationTeam1 = existingMatch.StaticFormationTeam1;
-                $scope.match.StaticFormationTeam2 = existingMatch.StaticFormationTeam2;
-
-                $scope.today = existingMatch.TimeStampUtc;
-
-                $scope.loading = false;
-            });
-        }
+                    $scope.match.MatchResult.Team1Score = m.MatchResult.Team1Score;
+                    $scope.match.MatchResult.Team2Score = m.MatchResult.Team2Score;
+                });
+            }
+        });
 
 
         $scope.submit = function() {
