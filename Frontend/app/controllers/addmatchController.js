@@ -22,6 +22,10 @@ app.controller("addmatchController",
                     $scope.playerlist.Player3 = m.PlayerList[2];
                     $scope.playerlist.Player4 = m.PlayerList[3];
 
+                    $scope.match.Id = m.Id;
+                    $scope.today = m.TimeStampUtc;
+                    $scope.match.StaticFormationTeam1 = m.StaticFormationTeam1;
+                    $scope.match.StaticFormationTeam2 = m.StaticFormationTeam2;
                     $scope.match.MatchResult.Team1Score = m.MatchResult.Team1Score;
                     $scope.match.MatchResult.Team2Score = m.MatchResult.Team2Score;
                 });

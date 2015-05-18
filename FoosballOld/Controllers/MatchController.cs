@@ -72,24 +72,27 @@ namespace FoosballOld.Controllers
         [HttpPost]
         public IHttpActionResult SaveMatch(Match match)
         {
-            //Sat i AddMatch java
-
-            if (match.TimeStampUtc == DateTime.MinValue)
-            {
-                match.TimeStampUtc = DateTime.UtcNow;
-            }
-
             //TODO Run validation
 
             try
             {
-                var currentLeaderboard = _leaderboardService.GetLatestLeaderboardView();
                 
-                _leaderboardService.AddMatchToLeaderboard(currentLeaderboard, match);
-                
-                _matchRepository.SaveMatch(match);
 
-                _leaderboardViewRepository.SaveLeaderboardView(currentLeaderboard);
+                if (match.Id == Guid.Empty)
+                {
+                    _matchRepository.SaveMatch(match);
+                    _leaderboardService.RecalculateLeaderboard();
+                }
+                else
+                {
+                    _matchRepository.SaveMatch(match);
+
+                    var currentLeaderboard = _leaderboardService.GetLatestLeaderboardView();
+
+                    _leaderboardService.AddMatchToLeaderboard(currentLeaderboard, match);
+                    
+                    _leaderboardViewRepository.SaveLeaderboardView(currentLeaderboard);
+                }
 
                 return Ok();
             }
