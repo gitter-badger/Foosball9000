@@ -11,7 +11,7 @@ app.controller("addmatchController",
         $scope.loading = true;
         var d = new Date();
         $scope.today = new Date(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes(), d.getSeconds());
-
+        
         user.getUsers().then(function (payload) {
             $scope.userList = payload;
             $scope.loading = false;
@@ -24,7 +24,9 @@ app.controller("addmatchController",
                     $scope.playerlist.Player4 = m.PlayerList[3];
 
                     $scope.match.Id = m.Id;
-                    $scope.today = m.TimeStampUtc;
+                    var gameTime = new Date(m.TimeStampUtc);
+                    $scope.today = new Date(gameTime.getFullYear(), gameTime.getMonth(), gameTime.getDate(), gameTime.getHours(), gameTime.getMinutes(), gameTime.getSeconds());
+                    
                     $scope.match.StaticFormationTeam1 = m.StaticFormationTeam1;
                     $scope.match.StaticFormationTeam2 = m.StaticFormationTeam2;
                     $scope.match.MatchResult.Team1Score = m.MatchResult.Team1Score;
@@ -45,6 +47,8 @@ app.controller("addmatchController",
             if (validationResult.validated) {
                 $scope.validationFailed = false;
                 $scope.loading = true;
+                $scope.match.TimeStampUtc = $scope.today;
+
                 var addMatchPromise = match.addMatch($scope.match);
 
                 addMatchPromise.then(function () {
