@@ -9,7 +9,8 @@ app.controller("addmatchController",
         $scope.validationFailed = false;
         $scope.errorMessage = "";
         $scope.loading = true;
-        $scope.today = new Date();
+        var d = new Date();
+        $scope.today = new Date(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes(), d.getSeconds());
 
         user.getUsers().then(function (payload) {
             $scope.userList = payload;
